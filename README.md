@@ -1,5 +1,9 @@
 # µtrello
 
+## Installation
+
+Just use pip: `pip install utrello`
+
 ## Usage
 
 From the CLI:
