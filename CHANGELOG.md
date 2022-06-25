@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2022-06-25)
+### Feature
+* Builds and pushes docker image to gh registry ([`3970290`](https://github.com/davividal/utrello/commit/3970290665c4a7cde9984d37251c433fc774e3e2))
+
 ## v0.3.1 (2022-06-25)
 ### Fix
 * Docker build depens on release ([`7c2ad09`](https://github.com/davividal/utrello/commit/7c2ad09e7bb7088169f78d16004d64ba26ea64af))
