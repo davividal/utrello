@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.5.0 (2022-06-25)
+### Feature
+* Changes base docker image ([`b1eaf3b`](https://github.com/davividal/utrello/commit/b1eaf3b702d565c19c53fe91ffc32ee44470df08))
+
 ## v0.4.2 (2022-06-25)
 ### Fix
 * Add pandas as dependency ([`871d4f2`](https://github.com/davividal/utrello/commit/871d4f28486c1692802364878483af9665529a62))
