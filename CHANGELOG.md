@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.2 (2022-06-25)
+### Fix
+* Add pandas as dependency ([`871d4f2`](https://github.com/davividal/utrello/commit/871d4f28486c1692802364878483af9665529a62))
+
 ## v0.4.1 (2022-06-25)
 ### Fix
 * Add requests as dependency ([`48b282a`](https://github.com/davividal/utrello/commit/48b282a503b8bacf4a5650832efcf1a7fa3438ca))
