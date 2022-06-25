@@ -5,7 +5,7 @@ import os
 from . import api, model
 
 
-__version__ = 'v0.1.0'
+__version__ = '0.1.0'
 
 
 def board_list_handler(api_credentials, args):
@@ -23,7 +23,7 @@ def card_create_handler(api_credentials, args):
         cards_list = model.cards_from_csv(args.cards_csv)
     else:
         cards_list = [model.card_from_args(args)]
-    
+
     return [api.Cards(**api_credentials).create(card) for card in cards_list]
 
 
@@ -36,7 +36,7 @@ def main():
 
     boards = subparsers.add_parser('boards')
     board_actions = boards.add_subparsers()
-    
+
     board_list = board_actions.add_parser('list')
     board_list.set_defaults(func=board_list_handler)
 
@@ -46,7 +46,7 @@ def main():
 
     cards = subparsers.add_parser('cards')
     card_actions = cards.add_subparsers()
-    
+
     card_create = card_actions.add_parser('create')
     card_csv = card_create.add_argument_group('create from csv')
     card_csv.add_argument('-f', '--from-csv', dest='cards_csv', type=argparse.FileType('r'))
@@ -55,7 +55,7 @@ def main():
     card_model.add_argument('--name', dest='name', type=str)
     card_model.add_argument('--desc', dest='desc', type=str)
     card_model.add_argument('--idList', dest='idList', type=str)
-    
+
     card_create.set_defaults(func=card_create_handler)
 
     args = parser.parse_args()
@@ -64,7 +64,7 @@ def main():
         'api_key': args.api_key,
         'api_token': args.api_token
     }
-    
+
     # try:
     print(args.func(api_credentials, args))
     # except TypeError:
