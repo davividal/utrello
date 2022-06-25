@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2022-06-25)
+### Feature
+* Add docker build workflow ([`3e71c14`](https://github.com/davividal/utrello/commit/3e71c14cb33eb0f4484207862b0756dd33915a29))
+
 ## v0.1.0 (2022-06-25)
 ### Feature
 * Adds Dockerfile ([`745d3ae`](https://github.com/davividal/utrello/commit/745d3aec95b585308ea30da435226e173c1be93e))
