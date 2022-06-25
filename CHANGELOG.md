@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.1 (2022-06-25)
+### Fix
+* Add requests as dependency ([`48b282a`](https://github.com/davividal/utrello/commit/48b282a503b8bacf4a5650832efcf1a7fa3438ca))
+* Add requests as dependency ([`e621f85`](https://github.com/davividal/utrello/commit/e621f859eee96f1a2655faf80e7a03b87dbf1bd5))
+
 ## v0.4.0 (2022-06-25)
 ### Feature
 * Builds and pushes docker image to gh registry ([`3970290`](https://github.com/davividal/utrello/commit/3970290665c4a7cde9984d37251c433fc774e3e2))
