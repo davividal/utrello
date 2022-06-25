@@ -5,7 +5,7 @@ import os
 from . import api, model
 
 
-__version__ = '0.2.0'
+__version__ = '0.3.0'
 
 
 def board_list_handler(api_credentials, args):
