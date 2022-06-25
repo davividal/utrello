@@ -5,6 +5,9 @@ import os
 from . import api, model
 
 
+__version__ = 'v0.1.0'
+
+
 def board_list_handler(api_credentials, args):
     return api.Boards(**api_credentials).list()
 
