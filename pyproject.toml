@@ -22,6 +22,6 @@ version_variable = [
     "src/utrello/__init__.py:__version__",
     "pyproject.toml:version"
 ]
-branch = "main"
+branch = "master"
 upload_to_pypi = true
 build_command = "pip install poetry && poetry build"
