@@ -1,21 +1,39 @@
 import pandas
 
 
-class Card(object):
+class Card:
+    """
+    Simple class used to map Trello's Card.
+    """
+
     name = None
     desc = None
-    idList = None
+    idList = None  # noqa Since this is mapping a Trello field, it does not follow PEP8
 
     def __init__(self, **kwargs):
         for key, value in kwargs.items():
             if hasattr(self, key):
                 setattr(self, key, value)
-    
 
-def card_from_args(args):
-    acceptable_params = list(filter(lambda m: not(m.startswith('__')), Card.__dict__))
-    new_card_params = {param: getattr(args, param) for param in acceptable_params if hasattr(args, param)}
+    def __repr__(self) -> str:
+        return f"{self.name}/{self.desc}/{self.idList}"
+
+    def __eq__(self, other_card: object) -> bool:
+        comparable_attrs = list(
+            filter(lambda m: not (m.startswith("__")), Card.__dict__)
+        )
+        comparisson = [
+            getattr(self, attr) == getattr(other_card, attr)
+            for attr in comparable_attrs
+        ]
+        return all(comparisson)
+
+
+def card_from_dict(attrs):
+    acceptable_params = list(filter(lambda m: not (m.startswith("__")), Card.__dict__))
+    new_card_params = {param: attrs.get(param, None) for param in acceptable_params}
     return Card(**new_card_params)
+
 
 def cards_from_csv(cards_csv):
     df = pandas.read_csv(cards_csv)
