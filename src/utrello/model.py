@@ -5,6 +5,7 @@ class Card:
     """
     Simple class used to map Trello's Card.
     """
+
     name = None
     desc = None
     idList = None  # noqa Since this is mapping a Trello field, it does not follow PEP8
@@ -18,15 +19,21 @@ class Card:
         return f"{self.name}/{self.desc}/{self.idList}"
 
     def __eq__(self, other_card: object) -> bool:
-        comparable_attrs = list(filter(lambda m: not(m.startswith('__')), Card.__dict__))
-        comparisson = [getattr(self, attr) == getattr(other_card, attr) for attr in comparable_attrs]
+        comparable_attrs = list(
+            filter(lambda m: not (m.startswith("__")), Card.__dict__)
+        )
+        comparisson = [
+            getattr(self, attr) == getattr(other_card, attr)
+            for attr in comparable_attrs
+        ]
         return all(comparisson)
 
 
 def card_from_dict(attrs):
-    acceptable_params = list(filter(lambda m: not(m.startswith('__')), Card.__dict__))
+    acceptable_params = list(filter(lambda m: not (m.startswith("__")), Card.__dict__))
     new_card_params = {param: attrs.get(param, None) for param in acceptable_params}
     return Card(**new_card_params)
+
 
 def cards_from_csv(cards_csv):
     df = pandas.read_csv(cards_csv)
