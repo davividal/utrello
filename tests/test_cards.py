@@ -1,5 +1,6 @@
 from io import StringIO
 from textwrap import dedent
+
 from utrello import model
 
 
@@ -71,7 +72,7 @@ class TestCsvCardCreation:
             model.Card(name="Test card", desc="Empty desc", idList="abc456"),
             model.Card(name="Test card", desc="Empty desc", idList="abc123"),
             model.Card(name="Test card", desc="Empty desc", idList="abc456"),
-            model.Card(name="Test card", desc="Empty desc", idList="abc123")
+            model.Card(name="Test card", desc="Empty desc", idList="abc123"),
         ]
 
         csv = """

@@ -13,7 +13,7 @@ class TrelloApi:
     service_endpoint: typing.Optional[str] = None
     url: str
     params: typing.Dict[str, typing.Any] = {}
-    headers: str = {"Accept": "application/json"}
+    headers: typing.Dict[str, typing.Any] = {"Accept": "application/json"}
 
     def __init__(self, api_key, api_token):
         self.params["key"] = api_key
@@ -40,7 +40,7 @@ class Lists(TrelloApi):
         req = requests.get(
             self.url.format(board_id=self.board_id),
             params=self.params,
-            headers=self.headers
+            headers=self.headers,
         )
         return req.json()
 
