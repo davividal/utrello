@@ -4,7 +4,11 @@ import requests
 implemented_services = ['boards', 'cards']
 
 
-class TrelloApi(object):
+class TrelloApi:
+    """
+    Base class to interact with Trello API.
+    Ideally this should not be used directly
+    """
     base_url = 'https://api.trello.com/1'
     service_endpoint = None
     url = None
@@ -13,7 +17,7 @@ class TrelloApi(object):
     def __init__(self, api_key, api_token):
         self.params['key'] = api_key
         self.params['token'] = api_token
-        self.url = "{}{}".format(self.base_url, self.service_endpoint)
+        self.url = f"{self.base_url.strip('/')}/{self.service_endpoint.strip('/')}"
 
 
 class Boards(TrelloApi):

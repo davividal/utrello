@@ -1,6 +1,4 @@
 import argparse
-import json
-import os
 
 from . import api, model
 
@@ -8,7 +6,7 @@ from . import api, model
 __version__ = '0.4.2'
 
 
-def board_list_handler(api_credentials, args):
+def board_list_handler(api_credentials, _args):
     return api.Boards(**api_credentials).list()
 
 
@@ -22,7 +20,7 @@ def card_create_handler(api_credentials, args):
     if args.cards_csv:
         cards_list = model.cards_from_csv(args.cards_csv)
     else:
-        cards_list = [model.card_from_args(args)]
+        cards_list = [model.card_from_dict(args.__dict__)]
 
     return [api.Cards(**api_credentials).create(card) for card in cards_list]
 
@@ -57,6 +55,7 @@ def main():
     card_model.add_argument('--idList', dest='idList', type=str)
 
     card_create.set_defaults(func=card_create_handler)
+    args = parser.parse_args("cards create --name test --desc test --idList abc123".split())
 
     args = parser.parse_args()
 
@@ -65,7 +64,7 @@ def main():
         'api_token': args.api_token
     }
 
-    # try:
-    print(args.func(api_credentials, args))
-    # except TypeError:
-        # parser.print_help()
+    try:
+        print(args.func(api_credentials, args))
+    except AttributeError:
+        parser.print_help()
