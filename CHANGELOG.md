@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.1 (2022-06-26)
+### Fix
+* Adds instructions on how to use docker ([`0f3e44f`](https://github.com/davividal/utrello/commit/0f3e44f41d9d9b8011291a5dab9d18f37351c859))
+
 ## v0.8.0 (2022-06-26)
 ### Feature
 * Supports env for API tokens, adds docker usage to readme ([`4d6c743`](https://github.com/davividal/utrello/commit/4d6c7434c6868890c7830bdcbb36b82119fafd69))
