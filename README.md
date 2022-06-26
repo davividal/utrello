@@ -2,7 +2,11 @@
 
 ## Installation
 
-Just use pip: `pip install utrello`
+You can use Docker or pip.
+
+Using pip: `pip install utrello`
+
+Using docker: `docker run ghcr.io/davividal/utrello:master`
 
 ## Usage
 

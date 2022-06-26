@@ -29,7 +29,11 @@ class Boards(TrelloApi):
         params = self.params.copy()
         params["fields"] = "name"
         req = requests.get(self.url, params=params, headers=self.headers)
-        return req.json()
+
+        try:
+            return req.json()
+        except requests.JSONDecodeError:
+            return req.text
 
 
 class Lists(TrelloApi):
@@ -42,7 +46,11 @@ class Lists(TrelloApi):
             params=self.params,
             headers=self.headers,
         )
-        return req.json()
+
+        try:
+            return req.json()
+        except requests.JSONDecodeError:
+            return req.text
 
 
 class Cards(TrelloApi):
@@ -53,4 +61,8 @@ class Cards(TrelloApi):
         query.update(card.__dict__)
 
         response = requests.post(self.url, headers=self.headers, params=query)
-        return response.json()
+
+        try:
+            return response.json()
+        except requests.JSONDecodeError:
+            return response.text
