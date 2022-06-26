@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "utrello"
-version = "0.4.2"
+version = "0.5.0"
 description = ""
 authors = ["Davi Koscianski Vidal <davividal@gmail.com>"]
 license = "MIT"
