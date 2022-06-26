@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v0.6.0 (2022-06-26)
+### Feature
+* Adds prospector and start tests ([`d98a316`](https://github.com/davividal/utrello/commit/d98a31618b5a684ac2c24ce33aff61d4dd285e36))
+
+### Fix
+* Fixes lint issues ([`2773817`](https://github.com/davividal/utrello/commit/27738178d64e4969bc7234a3bbfb42b2cadf4a9b))
+
 ## v0.5.0 (2022-06-25)
 ### Feature
 * Changes base docker image ([`b1eaf3b`](https://github.com/davividal/utrello/commit/b1eaf3b702d565c19c53fe91ffc32ee44470df08))

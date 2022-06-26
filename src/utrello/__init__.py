@@ -2,7 +2,7 @@ import argparse
 
 from . import api, model
 
-__version__ = "0.5.0"
+__version__ = "0.6.0"
 
 
 def board_list_handler(api_credentials, _args):
