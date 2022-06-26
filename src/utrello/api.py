@@ -1,5 +1,6 @@
-import requests
 import typing
+
+import requests
 
 
 class TrelloApi:
