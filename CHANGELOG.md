@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.8.0 (2022-06-26)
+### Feature
+* Supports env for API tokens, adds docker usage to readme ([`4d6c743`](https://github.com/davividal/utrello/commit/4d6c7434c6868890c7830bdcbb36b82119fafd69))
+
 ## v0.7.0 (2022-06-26)
 ### Feature
 * Adds tests for model, adds test and coverage on actions ([`70f1797`](https://github.com/davividal/utrello/commit/70f1797488b5c4644c091e5a2d39dedd2c814749))
