@@ -1,5 +1,5 @@
-from typing import Dict, Optional, Any
 import requests
+import typing
 
 
 class TrelloApi:
@@ -9,9 +9,9 @@ class TrelloApi:
     """
 
     base_url: str = "https://api.trello.com/1"
-    service_endpoint: Optional[str] = None
+    service_endpoint: typing.Optional[str] = None
     url: str
-    params: Dict[str, Any] = {}
+    params: typing.Dict[str, typing.Any] = {}
 
     def __init__(self, api_key, api_token):
         self.params["key"] = api_key
