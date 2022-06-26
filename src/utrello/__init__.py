@@ -1,4 +1,5 @@
 import argparse
+import os
 
 from . import api, model
 
@@ -26,8 +27,8 @@ def card_create_handler(api_credentials, args):
 
 def main():
     parser = argparse.ArgumentParser(description="Interacts with Trello Restful API")
-    parser.add_argument("--api_key")
-    parser.add_argument("--api_token")
+    parser.add_argument("--api_key", default=os.environ.get("TRELLO_API_KEY"))
+    parser.add_argument("--api_token", default=os.environ.get("TRELLO_API_TOKEN"))
 
     subparsers = parser.add_subparsers(help="service help")
 
