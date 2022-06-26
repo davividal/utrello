@@ -13,6 +13,7 @@ class TrelloApi:
     service_endpoint: typing.Optional[str] = None
     url: str
     params: typing.Dict[str, typing.Any] = {}
+    headers: typing.Dict[str, typing.Any] = {"Accept": "application/json"}
 
     def __init__(self, api_key, api_token):
         self.params["key"] = api_key
@@ -27,7 +28,7 @@ class Boards(TrelloApi):
     def list(self):
         params = self.params.copy()
         params["fields"] = "name"
-        req = requests.get(self.url, params=params)
+        req = requests.get(self.url, params=params, headers=self.headers)
         return req.json()
 
 
@@ -36,7 +37,11 @@ class Lists(TrelloApi):
     board_id = None
 
     def list(self):
-        req = requests.get(self.url.format(board_id=self.board_id), params=self.params)
+        req = requests.get(
+            self.url.format(board_id=self.board_id),
+            params=self.params,
+            headers=self.headers,
+        )
         return req.json()
 
 
@@ -44,13 +49,8 @@ class Cards(TrelloApi):
     service_endpoint = "/cards"
 
     def create(self, card):
-        headers = {"Accept": "application/json"}
-        print(self.url)
-
         query = self.params.copy()
         query.update(card.__dict__)
-        print(query)
 
-        response = requests.post(self.url, headers=headers, params=query)
-        print(response)
+        response = requests.post(self.url, headers=self.headers, params=query)
         return response.json()

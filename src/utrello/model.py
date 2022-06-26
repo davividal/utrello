@@ -30,11 +30,22 @@ class Card:
 
 
 def card_from_dict(attrs):
+    """
+    Creates a new Card object from a dict as input.
+    This is used to create Card from both CLI and CSV inputs.
+    The keys used will only be the keys that have exactly the same name
+    as the attributes in Card class.
+    """
+
     acceptable_params = list(filter(lambda m: not (m.startswith("__")), Card.__dict__))
     new_card_params = {param: attrs.get(param, None) for param in acceptable_params}
     return Card(**new_card_params)
 
 
 def cards_from_csv(cards_csv):
+    """
+    Returns a list of Card objects for a CSV input.
+    The CSV column headers must coincide with Card's attributes in name, not in order.
+    """
     df = pandas.read_csv(cards_csv)
     return [Card(**row.to_dict()) for _idx, row in df.iterrows()]

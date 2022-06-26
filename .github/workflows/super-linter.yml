@@ -12,6 +12,29 @@ on:
   pull_request:
     branches: [ "master" ]
 jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+
+      - name: Installs poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.1.13
+
+      - name: Install dependencies
+        working-directory: /home/runner/work/utrello/utrello
+        run: poetry install
+
+      - name: Test with pytest
+        working-directory: /home/runner/work/utrello/utrello
+        run: |
+          poetry run pytest --doctest-modules --junitxml=junit/test-results.xml --cov --cov-report=xml --cov-report=html
+
   run-lint:
     runs-on: ubuntu-latest
     steps:
@@ -25,5 +48,6 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
+          VALIDATE_YAML: false
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
