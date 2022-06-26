@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.7.0 (2022-06-26)
+### Feature
+* Adds tests for model, adds test and coverage on actions ([`70f1797`](https://github.com/davividal/utrello/commit/70f1797488b5c4644c091e5a2d39dedd2c814749))
+
 ## v0.6.0 (2022-06-26)
 ### Feature
 * Adds prospector and start tests ([`d98a316`](https://github.com/davividal/utrello/commit/d98a31618b5a684ac2c24ce33aff61d4dd285e36))
