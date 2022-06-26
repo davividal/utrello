@@ -29,6 +29,8 @@ optional arguments:
 
 You can get your own Trello API key at https://trello.com/app-key . After that, generate a manual token, in the same page. You need to provide both values in order to use this program.
 
+You can provide the credentials either as arguments or via environment variables: `TRELLO_API_KEY` and `TRELLO_API_TOKEN`.
+
 ## Implemented features
 
 Currently the implemented features are: list all board for the current user, list all lists for a given board and create card for a given list.
@@ -56,3 +58,11 @@ list_id_2,task 2,test task 2
 list_id_1,task 3,test task 3
 ```
 Note that you can create cards for whichever list you want.
+
+### Using Docker
+
+If you want to create cards using CSV under Docker, you can simply use volumes for that:
+
+```bash
+docker run -v $PWD/cards.csv:/cards.csv:ro ghcr.io/davividal/utrello:master --api_key YOUR_API_KEY --api_token YOUR_API_TOKEN cards create -f /cards.csv
+```
